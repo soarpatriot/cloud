@@ -20,7 +20,9 @@ exports.config = {
       // }
     },
     stylesheets: {
-      joinTo: "css/app.css",
+      //"bootstrap.css": /^node_modules/,
+      //"bootstrap-material-design.css": /^node_modules/
+      joinTo:  "css/app.css",
       order: {
         after: ["web/static/css/app.css"] // concat app.css last
       }
@@ -54,6 +56,15 @@ exports.config = {
     babel: {
       // Do not use ES6 compiler in vendor code
       ignore: [/web\/static\/vendor/]
+    },
+    copycat: {
+      "css/fonts": ["node_modules/daemonite-material/css/fonts/"],
+      "css": ["node_modules/material-design-icons/iconfont/"]
+    },
+    sass: {
+      options: {
+        includePaths: ["node_modules/material-design-lite/src/"]
+      }
     }
   },
 
@@ -64,6 +75,12 @@ exports.config = {
   },
 
   npm: {
-    enabled: true
+    enabled: true,
+    styles: {
+    },
+    globals: { // bootstrap-sass' JavaScript requires both '$' and 'jQuery' in global scope
+      $: 'jquery',
+      jQuery: 'jquery'
+    }  
   }
 };
