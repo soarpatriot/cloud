@@ -26,12 +26,16 @@ function init() {
     scene.add(mesh);
 
     renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
+    var screenWidth = window.innerWidth;
+    resize(renderer, screenWidth)
     document.getElementById("model").appendChild(renderer.domElement);
 
 }
-
+window.onresize = resize;
+function resize(){
+  var width = window.innerWidth;
+  renderer.setSize(width, width * 0.56);
+}
 function animate() {
 
     requestAnimationFrame(animate);
