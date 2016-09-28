@@ -1,0 +1,28 @@
+<h2>Listing molds</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for mold <- @molds do %>
+    <tr>
+      <td><%= mold.name %></td>
+      <td><%= mold.url %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: mold_path(@conn, :show, mold), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: mold_path(@conn, :edit, mold), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: mold_path(@conn, :delete, mold), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New mold", to: mold_path(@conn, :new) %>

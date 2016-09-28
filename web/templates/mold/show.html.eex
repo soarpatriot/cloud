@@ -1,0 +1,18 @@
+<h2>Show mold</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @mold.name %>
+  </li>
+
+  <li>
+    <strong>Url:</strong>
+    <%= @mold.url %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: mold_path(@conn, :edit, @mold) %>
+<%= link "Back", to: mold_path(@conn, :index) %>
