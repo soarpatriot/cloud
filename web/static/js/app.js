@@ -12,7 +12,8 @@
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
-import "material-design-lite"
+//import "material-design-lite"
+import "bootstrap-sass"
 import "./home.js"
 // Import local files
 //

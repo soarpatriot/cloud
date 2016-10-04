@@ -1,6 +1,9 @@
+
+<div class="container">
 <h2>Edit mold</h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: mold_path(@conn, :update, @mold) %>
 
 <%= link "Back", to: mold_path(@conn, :index) %>
+</div>

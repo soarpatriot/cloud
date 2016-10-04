@@ -1,5 +1,7 @@
 defmodule Cloud.Router do
   use Cloud.Web, :router
+  # use Addict.RoutesHelper
+  # use Passport
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -7,6 +9,7 @@ defmodule Cloud.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    # plug :current_user
   end
 
   pipeline :api do
@@ -15,10 +18,18 @@ defmodule Cloud.Router do
 
   scope "/", Cloud do
     pipe_through :browser # Use the default browser stack
-
+    
+        get "/login", SessionController, :new
+        post "/login", SessionController, :create
+        get "/logout", SessionController, :delete
+        get "/register", RegistrationController, :new
+        post "/register", RegistrationController, :create
+        get "/forget-password", PasswordController, :forget_password
+        post "/reset-password", PasswordController, :reset_password
     get "/", PageController, :index
     resources "/molds", MoldController
     resources "/users", UserController
+    # addict :routes
   end
 
   # Other scopes may use custom stacks.

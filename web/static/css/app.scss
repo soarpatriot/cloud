@@ -1,9 +1,6 @@
 /* This file is for your main application css. */
-
-body {
-  margin-top: 58px;
-}
-
-.main-body{
-  margin-top: 58px;
-}
+$mdb-btn-font-size-base: 14px;
+$brand-primary: #9c27b0;
+//$brand-primary: #03a9f4;
+@import "bootstrap";
+@import "material-kit";

@@ -63,14 +63,18 @@ exports.config = {
     },
     sass: {
       options: {
-        includePaths: ["node_modules/material-design-lite/src/"]
+        includePaths: ["node_modules/bootstrap-sass/assets/stylesheets", 
+                       "node_modules/material-kit/assets/sass"]
+        //includePaths: ["node_modules/material-design-lite/src/"]
       }
     }
   },
 
   modules: {
     autoRequire: {
-      "js/app.js": ["web/static/js/app"]
+      "js/app.js": [
+        "bootstrap-sass",
+        "web/static/js/app"]
     }
   },
 
@@ -78,6 +82,7 @@ exports.config = {
     enabled: true,
     styles: {
     },
+     whitelist: ["phoenix", "phoenix_html", "jquery", "bootstrap-sass"],
     globals: { // bootstrap-sass' JavaScript requires both '$' and 'jQuery' in global scope
       $: 'jquery',
       jQuery: 'jquery'

@@ -2,6 +2,8 @@ defmodule Cloud.MoldController do
   use Cloud.Web, :controller
 
   alias Cloud.Mold
+  plug Cloud.Plug.Authenticate
+  plug :action
 
   def index(conn, _params) do
     molds = Repo.all(Mold)

@@ -2,6 +2,9 @@ defmodule Cloud.UserController do
   use Cloud.Web, :controller
 
   alias Cloud.User
+  plug Cloud.Plug.Authenticate
+  plug :action
+
 
   def index(conn, _params) do
     users = Repo.all(User)

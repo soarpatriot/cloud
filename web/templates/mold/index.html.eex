@@ -1,3 +1,4 @@
+<div class="container">
 <h2>Listing molds</h2>
 
 <table class="table">
@@ -26,3 +27,4 @@
 </table>
 
 <%= link "New mold", to: mold_path(@conn, :new) %>
+</div>

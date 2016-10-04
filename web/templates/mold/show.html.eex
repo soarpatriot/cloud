@@ -1,3 +1,5 @@
+
+<div class="container">
 <h2>Show mold</h2>
 
 <ul>
@@ -16,3 +18,4 @@
 
 <%= link "Edit", to: mold_path(@conn, :edit, @mold) %>
 <%= link "Back", to: mold_path(@conn, :index) %>
+</div>

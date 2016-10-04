@@ -25,3 +25,17 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+#config :addict,
+#  secret_key: "243262243132244a61316b4d6d2e66624e69385946624d6c637344354f",
+#  extra_validation: fn ({valid, errors}, user_params) -> {valid, errors} end, # define extra validation here
+#  user_schema: Cloud.User,
+#  repo: Cloud.Repo,
+#  from_email: "no-reply@example.com", # CHANGE THIS
+#  mailgun_domain: "",
+#  mailgun_key: "",
+#  mail_service: :mailgun
+#
+#config :passport,
+#  resource: "User",
+#  repo: "#{binding[:base]}.Repo"
