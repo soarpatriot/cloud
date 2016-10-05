@@ -1,8 +1,7 @@
 defmodule Cloud.MoldController do
   use Cloud.Web, :controller
-
-  alias Cloud.Mold
   import Passport.Plug
+  alias Cloud.Mold
   plug :authenticate
 
   def index(conn, _params) do

@@ -1,5 +1,4 @@
 
-
 window.THREE = require("three")
 
 
@@ -28,7 +27,9 @@ function init() {
     renderer = new THREE.WebGLRenderer();
     var screenWidth = window.innerWidth;
     resize(renderer, screenWidth)
-    document.getElementById("model").appendChild(renderer.domElement);
+    if(document.getElementById("model")){
+      document.getElementById("model").appendChild(renderer.domElement);
+    }
 
 }
 window.onresize = resize;

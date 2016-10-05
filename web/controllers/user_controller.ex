@@ -1,12 +1,8 @@
 defmodule Cloud.UserController do
   use Cloud.Web, :controller
-
-  alias Cloud.User
-
   import Passport.Plug
+  alias Cloud.User
   plug :authenticate
-  plug :action
-
 
   def index(conn, _params) do
     users = Repo.all(User)

@@ -14,6 +14,7 @@
 import "phoenix_html"
 //import "material-design-lite"
 import "bootstrap-sass"
+import "./site.js"
 import "./home.js"
 // Import local files
 //

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Cloud!</title>
+    <title>VR</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -46,7 +46,7 @@
 
         <%= if @current_user do %>
           <li>
-            <%= link to: user_path(@conn, :new) do %>
+            <%= link to: user_path(@conn, :show, @current_user.id) do %>
               <%= @current_user.email %>
             <% end %>
           </li>
