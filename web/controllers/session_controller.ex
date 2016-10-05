@@ -4,6 +4,7 @@ defmodule Cloud.SessionController do
   alias Cloud.User
   alias Cloud.Session
 
+  plug :put_layout, "bare.html"
 
 
   def new(conn, _) do
@@ -28,6 +29,6 @@ defmodule Cloud.SessionController do
     conn
     |> Session.logout()
     |> put_flash(:info, "You have been logged out")
-    |> redirect(to: session_path(conn, :new))
+    |> redirect(to: "/")
   end
 end

@@ -1,7 +1,6 @@
 defmodule Cloud.Router do
   use Cloud.Web, :router
   # use Addict.RoutesHelper
-  # use Passport
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -9,7 +8,6 @@ defmodule Cloud.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    # plug :current_user
   end
 
   pipeline :api do

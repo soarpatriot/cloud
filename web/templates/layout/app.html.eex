@@ -44,13 +44,17 @@
 				</ul>
         <ul class="nav navbar-nav pull-right">
 
-        <%= if logged_in?(@conn) do %>
-          <li><%= current_user(@conn).email %></li>
+        <%= if @current_user do %>
+          <li>
+            <%= link to: user_path(@conn, :new) do %>
+              <%= @current_user.email %>
+            <% end %>
+          </li>
           
-          <li><%= link "Log out", to: session_path(@conn, :delete) %>
+          <li><%= link "退出", to: session_path(@conn, :delete) %>
         <% else %>
-          <li><%= link "Login", to: session_path(@conn, :new) %></li>
-          <li><%= link "Register", to: registration_path(@conn, :new) %></li>
+          <li><%= link "登录", to: session_path(@conn, :new) %></li>
+          <li><%= link "注册", to: registration_path(@conn, :new) %></li>
         <% end %>
         </ul>
 			</div>

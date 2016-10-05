@@ -2,7 +2,9 @@ defmodule Cloud.UserController do
   use Cloud.Web, :controller
 
   alias Cloud.User
-  plug Cloud.Plug.Authenticate
+
+  import Passport.Plug
+  plug :authenticate
   plug :action
 
 

@@ -2,7 +2,7 @@ defmodule Cloud.RegistrationController do
   use Cloud.Web, :controller
 
   alias Cloud.User
-
+  plug :put_layout, "bare.html"
 
 
   def new(conn, _params) do
