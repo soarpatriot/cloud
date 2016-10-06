@@ -1,5 +1,5 @@
 <div class="container">
-<h2>Edit user</h2>
+<h2 class="text-center">编辑我的信息</h2>
 
 <%= render "form.html", changeset: @changeset,
                         action: user_path(@conn, :update, @user) %>

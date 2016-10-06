@@ -17,6 +17,9 @@ config :cloud, Cloud.Endpoint,
   pubsub: [name: Cloud.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+#config the lang
+config :cloud, Cloud.Gettext, default_locale: "zh"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
