@@ -1,13 +1,25 @@
 <%= form_for @changeset, @action, fn f -> %>
   <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>请检查您填写的信息！</p>
-    </div>
+		 <%= if f.errors != [] do %>
+				<div class="alert alert-danger">
+					<p>请检查如下错误！</p>
+					<ul>
+						<%= for {attr, message} <- f.errors do %>
+              <li> 
+                <%= translate_attr(humanize(attr)) %>
+                <%= translate_error(message) %>
+              </li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+
+
   <% end %>
 
   <div class="form-group">
-    <%= label f, :name, class: "control-label" %>
-    <%= text_input f, :name, class: "form-control" %>
+    <%= label f, :name, "名字", class: "control-label" %>
+    <%= text_input f, :name, label: "名字",class: "form-control" %>
     <%= error_tag f, :name %>
   </div>
 
@@ -18,12 +30,12 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :password, class: "control-label" %>
+    <%= label f, :password, "密码", name: "密码", class: "control-label" %>
     <%= text_input f, :password, class: "form-control" %>
     <%= error_tag f, :password %>
   </div>
   <div class="form-group">
-    <%= label f, :password_confirmation, class: "control-label" %>
+    <%= label f, :password_confirmation, "密码确认",class: "control-label" %>
     <%= text_input f, :password_confirmation, class: "form-control" %>
     <%= error_tag f, :password_confirmation %>
   </div>

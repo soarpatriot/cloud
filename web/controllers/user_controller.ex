@@ -4,10 +4,10 @@ defmodule Cloud.UserController do
   alias Cloud.User
   plug :authenticate
 
-  def index(conn, _params) do
-    users = Repo.all(User)
-    render(conn, "index.html", users: users)
-  end
+  #def index(conn, _params) do
+    #  users = Repo.all(User)
+    # render(conn, "index.html", users: users)
+    #end
 
   def new(conn, _params) do
     changeset = User.changeset(%User{})

@@ -13,16 +13,28 @@ defmodule Cloud.SessionController do
   end
 
   def create(conn, %{"session" => %{"email" => email, "password" => pass}}) do
-    case Session.login(conn, email, pass) do
-    {:ok, conn} ->
+
+    if(String.strip(email) =="" || String.strip(pass) == "") do 
       conn
-      |> put_flash(:info, "Welcome back!")
-      |> redirect(to: page_path(conn, :index))
-    {:error, _reason, conn} ->
-      conn
-      |> put_flash(:error, "用户名或密码不正确！")
-      |> render(:new)
+        |> put_flash(:error, "用户名密码不能为空！")
+        |> render(:new)
+ 
+    else 
+      case Session.login(conn, email, pass) do
+        {:ok, conn} ->
+          conn
+          |> put_flash(:info, "Welcome back!")
+          |> redirect(to: page_path(conn, :index))
+        {:error, _reason, conn} ->
+          conn
+          |> put_flash(:error, "用户名或密码不正确！")
+          |> render(:new)
+      end
     end
+  end
+
+  defp validate_user(attr, tip) do 
+     
   end
 
   def delete(conn, _) do

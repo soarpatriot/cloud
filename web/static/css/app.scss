@@ -4,3 +4,14 @@ $mdb-btn-font-size-base: 14px;
 $brand-primary: #03a9f4;
 @import "bootstrap";
 @import "material-kit";
+.navbar {
+  .navbar-nav {
+    > li > a {
+      text-transform: none;
+    }
+  }
+}
+
+
+
+

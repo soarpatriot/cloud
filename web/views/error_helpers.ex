@@ -37,4 +37,8 @@ defmodule Cloud.ErrorHelpers do
       Gettext.dgettext(Cloud.Gettext, "errors", msg, opts)
     end
   end
+
+  def translate_attr(msg) do 
+    Gettext.gettext(Cloud.Gettext, msg)
+  end
 end
